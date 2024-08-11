@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import MenImage from '@/public/Men.png';
+import MenImage from '@/public/fixed.png';
 import { useState } from "react";
 import useFetchData from "@/hooks/useFetchData";
 import NoImg from '@/public/no image.jpg';
-import AuthorI from '@/public/Author.jpg'
+import AuthorI from '@/public/ashish.jpg'
 import { FaHtml5 } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
 import { FaDatabase } from "react-icons/fa6";
@@ -70,9 +70,9 @@ export default function Home() {
          <section className="header_data_section">
             <div className="container flex flex-sb w-100">
                <div className="leftheader_info">
-                  <h1>Hi I am <span>Divyanshu Saini</span><br />
-                     UX/UI Designer</h1>
-                  <h3>Specilized in Java Script and Next js</h3>
+                  <h1>Hi I am <span>Ashish Sharma</span><br />
+                     Full Stack Developer</h1>
+                  <h3>Specilized in Java Script, React and Next js</h3>
                   <div className="flex gap-2">
                      <Link href="/contact"><button> contact Us</button></Link>
                      <Link href="/about"><button> About Me</button></Link>
@@ -113,10 +113,10 @@ export default function Home() {
                                  </p>
                                  <div className="blogauthor flex gap-1 ">
                                     <div className="blogaimg">
-                                       <img src="/public/Author.jpg" alt="author" />
+                                    <Image src={AuthorI} alt="author" />
                                     </div>
                                     <div className="flex flex-col flex-left gap-05">
-                                       <h4>Divyanshu Saini</h4>
+                                       <h4>Ashish Sharma</h4>
                                        <span>{new Date(blog.createAt).toLocaleDateString('en-Us', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                                     </div>
                                  </div>

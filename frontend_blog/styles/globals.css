@@ -969,10 +969,10 @@ button {
 }
 
 .blogaimg {
-  background-color: #e2e8f0;
-  border-radius: 50%;
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -983,10 +983,9 @@ button {
 }
 
 .blogaimg img {
-  width: 33px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
 }
 
 .blogtag {
