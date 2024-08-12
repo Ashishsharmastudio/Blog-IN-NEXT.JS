@@ -72,7 +72,7 @@ export default function BlogPage() {
                         {loading ? <div>Loading...</div> : blog && blog[0]?.title}
                     </h1>
                     <h5>
-                        By <span>Ashish Sharma</span>. Published in <span>
+                        By <span>Divyanshu Saini</span>. Published in <span>
                             {loading ? <div>Loading...</div> : blog && blog[0]?.blogcategory}
                         </span> on {blog && new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                         <span>. 1 min read </span>
