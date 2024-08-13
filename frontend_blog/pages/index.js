@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import MenImage from '@/public/fixed.png';
+import MenImage from '@/public/ashish.jpg';
 import { useState } from "react";
 import useFetchData from "@/hooks/useFetchData";
 import NoImg from '@/public/no image.jpg';
