@@ -81,7 +81,7 @@ export default function Home() {
                <div className="rightheader_img">
                   <div className="image_bg_top"></div>
                   <div className="image_bg_top2"></div>
-                  <Image src={MenImage} alt="image" />
+                  <Image  src={MenImage} alt="image" />
                </div>
             </div>
          </section>

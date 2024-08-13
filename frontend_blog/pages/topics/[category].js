@@ -120,7 +120,7 @@ export default function CategoryPage() {
                                                 <img src="/public/Author.jpg" alt="author" />
                                             </div>
                                             <div className="flex flex-col flex-left gap-05">
-                                                <h4>Divyanshu Saini</h4>
+                                                <h4>Ashish Sharma</h4>
                                                 <span>{new Date(item.createAt).toLocaleDateString('en-Us', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                                             </div>
                                         </div>
