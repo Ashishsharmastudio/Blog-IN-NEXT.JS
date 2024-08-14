@@ -1835,3 +1835,27 @@ button {
     font-size: 35px;
   }
 }
+/* slider css */
+.full-width-slider {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.full-width-slider .slick-slide {
+  height: 60vh;
+  position: relative;
+}
+
+.full-width-slider .slick-slide > div {
+  height: 100%;
+}
+
+.full-width-slider .slick-slide img {
+  object-fit: cover;
+  object-position: center;
+}
+/* slider css ended */

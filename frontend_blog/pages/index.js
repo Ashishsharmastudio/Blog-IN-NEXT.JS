@@ -1,35 +1,25 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import MenImage from '@/public/ashish.jpg';
 import { useState } from "react";
 import useFetchData from "@/hooks/useFetchData";
-import NoImg from '@/public/no image.jpg';
-import AuthorI from '@/public/ashish.jpg'
-import { FaHtml5 } from "react-icons/fa";
+import MenImage from '@/public/ashish.jpg';
+import NoImg from '@/public/img2.jpg';
+import AuthorI from '@/public/img1.jpg'
+import firstImage from '@/public/noimage.jpg'
+import { FaHtml5, FaGithub, FaInstagram } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
-import { FaDatabase } from "react-icons/fa6";
+import { FaDatabase, FaXTwitter } from "react-icons/fa6";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
-import { FaGithub } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-
-
-
-
-
-// import { Inter } from "next/font/google";
-// import styles from "@/styles/Home.module.css";
-
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
-
-   const [currentPage, setCurrentPage] = useState(1); //page number
-   const [perPage] = useState(5); //five blog per page
+   const [currentPage, setCurrentPage] = useState(1);
+   const [perPage] = useState(5);
    const { alldata, loading } = useFetchData('/api/getblog');
 
-   //function to handle page change
    const paginate = (pageNumbers) => {
       setCurrentPage(pageNumbers);
    }
@@ -38,27 +28,32 @@ export default function Home() {
    const currentBlogs = alldata.slice(indexOfFirstblog, indexOfLastblog);
 
    const allblog = alldata.length;
-
-   //filter publish blogs
    const publishedblogs = currentBlogs.filter(ab => ab.status === 'publish');
 
    const pageNumbers = [];
-
    for (let i = 1; i < Math.ceil(allblog / perPage); i++) {
       pageNumbers.push(i);
    }
 
    function extractFirstImageUrl(markdownContent) {
-      // check if markdowncontent is provided and non-emty
       if (!markdownContent || typeof markdownContent !== 'string') {
          return null;
       }
-
-      // regular expression to match the first image url in markdown format ![alt](imageurl)
       const regex = /!\[.*?\]\((.*?)\)/;
       const match = markdownContent.match(regex);
       return match ? match[1] : null;
    }
+
+   const sliderSettings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+   };
+
    return (
       <>
          <Head>
@@ -67,24 +62,21 @@ export default function Home() {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <section className="header_data_section">
-            <div className="container flex flex-sb w-100">
-               <div className="leftheader_info">
-                  <h1>Hi I am <span>Ashish Sharma</span><br />
-                     Full Stack Developer</h1>
-                  <h3>Specilized in Java Script, React and Next js</h3>
-                  <div className="flex gap-2">
-                     <Link href="/contact"><button> contact Us</button></Link>
-                     <Link href="/about"><button> About Me</button></Link>
-                  </div>
+
+         <section className="full-width-slider">
+            <Slider {...sliderSettings}>
+               <div>
+                  <Image src={MenImage} alt="Slide 1" layout="responsive" width={1920} height={1080} />
                </div>
-               <div className="rightheader_img">
-                  <div className="image_bg_top"></div>
-                  <div className="image_bg_top2"></div>
-                  <Image  src={MenImage} alt="image" />
+               <div>
+                  <Image src={NoImg} alt="Slide 2" layout="responsive" width={1920} height={1080} />
                </div>
-            </div>
+               <div>
+                  <Image src={AuthorI} alt="Slide 3" layout="responsive" width={1920} height={1080} />
+               </div>
+            </Slider>
          </section>
+
          <section className="main_blog_section">
             <div className="container flex flex-sb flex-left flex-wrap">
                <div className="leftblog_sec">
@@ -95,13 +87,11 @@ export default function Home() {
                         </div>
                      </div> : <>
                         {publishedblogs.map((blog) => {
-                           //in the markdown content first image show here
                            const firstImageUrl = extractFirstImageUrl(blog.description);
                            return <div className="blog" key={blog._id}>
                               <div className="blogimg">
-                                 {/* if not image in markdown show on image  */}
                                  <Link href={`/blog/${blog.slug}`}>
-                                    <Image src={firstImageUrl || NoImg} alt={blog.title} />
+                                    <Image src={firstImageUrl || firstImage} alt={blog.title} />
                                  </Link>
                               </div>
                               <div className="bloginfo">
@@ -109,8 +99,7 @@ export default function Home() {
                                     <div className="blogtag">{blog.tags[0]}</div>
                                  </Link>
                                  <Link href={`/blog/${blog.slug}`}><h3>{blog.title}</h3></Link>
-                                 <p>{blog.description}
-                                 </p>
+                                 <p>{blog.description}</p>
                                  <div className="blogauthor flex gap-1 ">
                                     <div className="blogaimg">
                                     <Image src={AuthorI} alt="author" />
@@ -122,7 +111,6 @@ export default function Home() {
                                  </div>
                               </div>
                            </div>
-
                         })}
                      </>}
                   </div>
@@ -148,7 +136,6 @@ export default function Home() {
                               <h3>Html, Css And JavaScript</h3>
                            </div>
                         </Link>
-                        {/* second link */}
                         <Link href='/topics/nextjs'>
                            <div className="topics">
                               <div className="flex flex-center topics_svg">
@@ -157,7 +144,6 @@ export default function Home() {
                               <h3>Next Js And React Js</h3>
                            </div>
                         </Link>
-                        {/* 3rd link */}
                         <Link href='/topics/database'>
                            <div className="topics">
                               <div className="flex flex-center topics_svg">
@@ -166,7 +152,6 @@ export default function Home() {
                               <h3>Database</h3>
                            </div>
                         </Link>
-                        {/* 4th link */}
                         <Link href='/topics/deployment'>
                            <div className="topics">
                               <div className="flex flex-center topics_svg">
@@ -176,7 +161,6 @@ export default function Home() {
                            </div>
                         </Link>
                      </div>
-
                   </div>
                   <div className="tags_sec mt-3">
                      <h2>Tags</h2>
@@ -190,7 +174,6 @@ export default function Home() {
                      </div>
                   </div>
                   <div className="letstalk_sec mt-3">
-
                      <h2>Let's Talk</h2>
                      <div className="talk_sec">
                         <h4>Want to find out know i can solve problems specific to your business ? let's talk.</h4>
@@ -210,7 +193,6 @@ export default function Home() {
                </div>
             </div>
          </section>
-
       </>
    );
 }
