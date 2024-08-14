@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
-import NoImg from '@/public/no image.jpg';
+import NoImg from '@/public/noimage.jpg';
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
