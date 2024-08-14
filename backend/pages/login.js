@@ -34,8 +34,8 @@ export default function Login(){
           alt="image"
          />
          <h1>Welcome Admin of the tech blog service.</h1>
-         <p>Visit our main website <a href="www.techblogservice.online">tech blog service</a> </p>
-         <button onClick={login} className="mt-2 ">Login wiht google</button>
+         <p>Visit our main website <a href="www.ashishsharmablog.tech">Ashish sharma blog</a> </p>
+         <button onClick={login} className="mt-2 ">Login with google</button>
       </div>
     </>
   }

@@ -82,7 +82,7 @@ export default function Header() {
     <div className="header_sec">
       <div className="container header">
         <div className="logo">
-          <Link href={"/"}><h1>Tech</h1></Link>
+          <Link href={"/"}><h1>Product Reviewer</h1></Link>
         </div>
         <div className="searchbar">
           <IoSearchSharp />

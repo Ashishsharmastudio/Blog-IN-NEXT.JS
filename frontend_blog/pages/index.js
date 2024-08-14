@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import useFetchData from "@/hooks/useFetchData";
-import MenImage from '@/public/ashish.jpg';
-import NoImg from '@/public/img2.jpg';
-import AuthorI from '@/public/img1.jpg'
+import MenImage from '@/public/carousel1.jpg';
+import NoImg from '@/public/carousel2.jpg';
+import Author2 from '@/public/carousel3.jpg'
+import AuthorI from '@/public/ashish.jpg'
 import firstImage from '@/public/noimage.jpg'
 import { FaHtml5, FaGithub, FaInstagram } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
@@ -72,7 +73,7 @@ export default function Home() {
                   <Image src={NoImg} alt="Slide 2" layout="responsive" width={1920} height={1080} />
                </div>
                <div>
-                  <Image src={AuthorI} alt="Slide 3" layout="responsive" width={1920} height={1080} />
+                  <Image src={Author2} alt="Slide 3" layout="responsive" width={1920} height={1080} />
                </div>
             </Slider>
          </section>
