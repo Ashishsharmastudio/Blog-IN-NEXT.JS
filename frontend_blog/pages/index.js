@@ -81,7 +81,7 @@ export default function Home() {
          <section className="main_blog_section">
             <div className="container flex flex-sb flex-left flex-wrap">
                <div className="leftblog_sec">
-                  <h2>Recently Published </h2>
+                  <h2>Recently Published Blog</h2>
                   <div className="blogs_sec">
                      {loading ? <div className="wh_100 flex flex-center mt-2 pb-5">
                         <div className="loader">
