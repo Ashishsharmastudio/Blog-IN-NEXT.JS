@@ -18,7 +18,8 @@ export default async function handle(req, res){
             //fetch  blog by tags
             const tag = await Blog.find({tags: req.query.tags});
             res.json(tag.reverse());
-        }else if(req.query?.slug){
+        } else if (req.query?.slug) {
+            
             //fetch  blog by slug
             const url = await Blog.find({slug: req.query.slug});
             res.json(url.reverse());

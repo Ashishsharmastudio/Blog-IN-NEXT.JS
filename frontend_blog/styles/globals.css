@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -301,7 +302,7 @@ button {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 /* ================================================== */
@@ -868,7 +869,7 @@ button {
 
 
 .main_blog_section {
-  position: relative;
+  
   background-color: #f4f4f4;
   padding: 3rem 0;
 }
@@ -878,8 +879,9 @@ button {
 }
 
 .leftblog_sec {
-  position: relative;
-  /* width: 50%; */
+  /* position: relative; */
+  width: 100%;
+  display: flex;
 }
 
 
@@ -906,20 +908,24 @@ button {
   border-radius: 5px;
 }
 
-.blogs_sec {
+/* .blogs_sec {
   position: relative;
-}
+} */
 
 .blog {
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  max-width: 750px;
+  /* max-width: 750px; */
+  max-width: 80rem; /* equivalent to 1280px */
+  /* margin-left: auto;
+  margin-right: auto; */
   gap: 2rem;
   border: 1px solid #d9d6d6;
-  padding: 0.5rem;
-  border-radius: 10px;
+  /* padding: 0.5rem; */
+  /* border-radius: 10px; */
   transition: 0.3s ease-in-out;
   margin-bottom: 1.2rem;
+  width: 500px;
 }
 
 .dark .blog {
@@ -937,9 +943,9 @@ button {
 }
 
 .blogimg {
-  width: 550px;
+  width: 100%;
   height: 250px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
 }
 
@@ -952,6 +958,7 @@ button {
 
 .bloginfo h3 {
   margin: 1rem 0;
+  padding: 0px 10px;
   font-size: 22px;
   color: #303136;
   text-transform: capitalize;
@@ -966,6 +973,7 @@ button {
   margin-bottom: 1.5rem;
   font-size: 15px;
   color: #999;
+  padding: 0px 10px;
 }
 
 .blogaimg {
@@ -994,6 +1002,7 @@ button {
   padding: 0.3rem 1rem;
   border-radius: 10px;
   text-transform: capitalize;
+  margin: 0px 10px;
 }
 
 .blogtag:hover {
@@ -1013,6 +1022,9 @@ button {
 .bloginfo span {
   font-size: 13px;
   color: #888;
+}
+.blogauthor{
+  padding: 10px 10px;
 }
 
 /* CSS for pagination buttons */
@@ -1725,10 +1737,10 @@ button {
   .rightblog_info {
     width: 100%;
   }
-
+/* 
   .blogs_sec {
     width: 100%;
-  }
+  } */
 
   .blog {
     max-width: 100%;
@@ -1859,3 +1871,51 @@ button {
   object-position: center;
 }
 /* slider css ended */
+
+/* map css */
+
+.blog-container {
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.blog-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.blog-info {
+  padding: 0.5rem 0;
+}
+
+.blog-tag {
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.blog-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.blog-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.blog-author,
+.blog-date {
+  font-size: 0.875rem;
+  color: #999;
+}

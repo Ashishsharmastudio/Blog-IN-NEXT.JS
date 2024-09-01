@@ -9,10 +9,10 @@ export default async function handle(req,res){
     const {method} = req;
 //data send or post
     if(method === 'POST'){
-        const {title,slug,description,blogcategory,tags,status} = req.body;
+        const {title,slug,description,blogcategory,tags,status,mainImage} = req.body;
         const blogDoc = await Blog.create({
-            title,slug,description,blogcategory,tags,status
-        })
+            title, slug, description, blogcategory, tags, status, mainImage
+        });
         res.json(blogDoc);
     }
     // data fetch and get
@@ -25,10 +25,10 @@ export default async function handle(req,res){
         }
     }
     if(method === 'PUT'){
-        const {_id,title,slug,description,blogcategory,tags,status} = req.body;
-        await Blog.updateOne({_id},{
-            title,slug,description,blogcategory,tags,status
-        });
+        const {_id,title,slug,description,blogcategory,tags,status,mainImage} = req.body;
+        await Blog.updateOne({ _id }, {
+            title, slug, description, blogcategory, tags, status, mainImage
+        }, { new: true });
         res.json(true)
     }
     // delete one blog

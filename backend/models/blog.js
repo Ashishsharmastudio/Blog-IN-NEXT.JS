@@ -1,12 +1,14 @@
 const {Schema, models, model} = require('mongoose');
 
-const BlogSchema = new Schema ({
+const BlogSchema = new Schema({
+   
     title:{type:String},
     slug:{type:String,required:true},
     description:{type:String},
     blogcategory:[{type:String}],
     tags:[{type:String}],
-    status:{type:String},
+    status: { type: String },
+    mainImage: { type: String }
 },
     { timestams:true}  // this option will automatically manage createdat   abd updatedat fields
 );
