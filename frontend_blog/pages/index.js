@@ -16,10 +16,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import secondimg from "../public/carousel2.jpg";
+import BannerBottom from "@/components/BannerBottom";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage] = useState(5);
+  const [perPage] = useState(6);
   const { alldata, loading } = useFetchData("/api/getblog");
 
   const paginate = (pageNumbers) => {
@@ -95,11 +96,16 @@ export default function Home() {
             />
           </div>
         </Slider>
+        
       </section>
+      <div className="bannerb">
+         <BannerBottom/>
+        </div>
+
 
       <section className="main_blog_section">
+      <h2 id="hadding">Recently Published </h2>
           <div className="leftblog_sec">
-            <h2>Recently Published </h2>
             <div className="blogs_sec">
               {loading ? (
                 <div className="wh_100 flex flex-center mt-2 pb-5">
@@ -108,14 +114,10 @@ export default function Home() {
               ) : (
                 <>
                   {publishedblogs.map((blog) => {
-                    console.log("Current blog in map:", blog);
-                    //in the markdown content first image show here
-                    const firstImageUrl = extractFirstImageUrl(
-                      blog.description
-                    );
+                    // console.log("Current blog in map:", blog);
                     return (
                       <div className="blog" key={blog._id}>
-                        <div className="blog" key={blog._id}>
+                        <div className="blogs" key={blog._id}>
                           <div className="blogimg ">
                             <Link href={`/blog/${blog.slug}`}>
                               <Image

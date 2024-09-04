@@ -21,12 +21,14 @@ export default function EditBlog() {
 
     useEffect(() => {
         if (id) {
+            // console.log('Fetching blog data for id:', id);
             axios.get('/api/blogapi?id=' + id)
                 .then(response => {
-                    setProductInfo(response.data)
+                    // console.log('Received blog data:', response.data);
+                    setProductInfo(response.data);
                 })
                 .catch(error => {
-                    console.error('Error fetching blog data:', error)
+                    console.error('Error fetching blog data:', error);
                 });
         }
     }, [id]);

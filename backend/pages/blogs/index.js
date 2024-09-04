@@ -116,8 +116,9 @@ export default function blogs() {
                     publishedBlog.map((blog, index) => (
                       <tr key={blog._id}>
                         <td>{indexOfFirstblog + index + 1}</td>
-                        <td>{blog.title}</td>
-                        <td><pre>{blog.slug}</pre></td>
+                        <td>{blog.title.length > 50 ? blog.title.substring(0, 50) + '...' : blog.title}</td>
+                        <td><pre>{blog.slug.length > 20 ? blog.slug.substring(0, 20) + '...' : blog.slug}
+                        </pre></td>
                         <td>
                           <div className="flex gap-2 flex-center">
                             <Link href={'/blogs/edit/' + blog._id}>
@@ -141,11 +142,11 @@ export default function blogs() {
             ''
           ) : (
             <div className="blogpagination">
-              <button onClick={() => paginate(currentPage - 1)} disbled={currentPage === 1}>Previous</button>
+              <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
               {pageNumbers.slice(Math.max(currentPage - 3, 0), Math.min(currentPage + 2, pageNumbers.length)).map(number => (
                 <button key={number} onClick={() => paginate(number)} className={`${currentPage === number ? 'active' : ''}`}>{number}</button>
               ))}
-              <button onClick={() => paginate(currentPage + 1)} disbled={currentBlogs.length === 1}>Next</button>
+              <button onClick={() => paginate(currentPage + 1)} disabled={currentBlogs.length === 1}>Next</button>
             </div>
           )}
         </div>
