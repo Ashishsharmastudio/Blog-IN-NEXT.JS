@@ -21,10 +21,10 @@ export default function EditBlog() {
 
     useEffect(() => {
         if (id) {
-            // console.log('Fetching blog data for id:', id);
+            console.log('Fetching blog data for id:', id);
             axios.get('/api/blogapi?id=' + id)
                 .then(response => {
-                    // console.log('Received blog data:', response.data);
+                    console.log('Received blog data:', response.data);
                     setProductInfo(response.data);
                 })
                 .catch(error => {
