@@ -21,11 +21,8 @@ export default function CategoryPage() {
         const fetchBlogdata = async () => {
             try {
                 const res = await axios.get(`/api/getblog?tags=${tags}`);
-<<<<<<< HEAD
                 console.log(res);
                 
-=======
->>>>>>> b021ea0e17f9f2506fdb1d2b1246c7acc4403820
                 const alldata = res.data;
                 setBlog(alldata);
                 setLoading(false);
@@ -66,7 +63,6 @@ export default function CategoryPage() {
     const publishedblogs = blog.filter(ab => ab.status === 'publish');
 
 
-<<<<<<< HEAD
     // // function extractFirstImageUrl(markdownContent) {
     //     // check if markdowncontent is provided and non-emty
     //     if (!markdownContent || typeof markdownContent !== 'string') {
@@ -78,19 +74,6 @@ export default function CategoryPage() {
     //     const match = markdownContent.match(regex);
     //     return match ? match[1] : null;
     // }
-=======
-    function extractFirstImageUrl(markdownContent) {
-        // check if markdowncontent is provided and non-emty
-        if (!markdownContent || typeof markdownContent !== 'string') {
-            return null;
-        }
-
-        // regular expression to match the first image url in markdown format ![alt](imageurl)
-        const regex = /!\[.*?\]\((.*?)\)/;
-        const match = markdownContent.match(regex);
-        return match ? match[1] : null;
-    }
->>>>>>> b021ea0e17f9f2506fdb1d2b1246c7acc4403820
 
     return <>
         <div className="blogpage">
