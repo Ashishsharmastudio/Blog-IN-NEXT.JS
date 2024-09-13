@@ -199,29 +199,11 @@ export default function Blog({
             )
           }
         >
-<<<<<<< HEAD
           <option value="mobilecomputer">Mobile & Computer</option>
           <option value="tvappliance">TV,Appliances&Electronics</option>
           <option value="mensfashion">Men's Fashion</option>
           <option value="fashion">Women's Fashion</option>
           <option value="others">Other's</option>
-=======
-          <option value="smartphones">Smartphones</option>
-          <option value="laptops">Laptops</option>
-          <option value="tablets">Tablets</option>
-          <option value="desktopcomputers">Desktop Computers</option>
-          <option value="smarthome">Smart Home Devices</option>
-          <option value="wearables">Wearables</option>
-          <option value="audio">Audio Equipment</option>
-          <option value="gaming">Gaming Consoles and Accessories</option>
-          <option value="cameras">Cameras and Photography Equipment</option>
-          <option value="tv's">TVs and Home Entertainment Systems</option>
-          <option value="computerperipherals">Computer Peripherals</option>
-          <option value="networking">Networking Equipment</option>
-          <option value="storage">Storage Devices</option>
-          <option value="drones">Drones</option>
-          <option value="vrar">VR/AR Headsets</option>
->>>>>>> b021ea0e17f9f2506fdb1d2b1246c7acc4403820
         </select>
 
         <p className="existingcategory flex gap-1 mt-1 mb-1">
