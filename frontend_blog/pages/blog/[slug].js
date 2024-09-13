@@ -76,9 +76,12 @@ export default function BlogPage() {
 
       <div className="slugpage">
 
+<<<<<<< HEAD
         
 
         <article className="article-box">
+=======
+>>>>>>> b021ea0e17f9f2506fdb1d2b1246c7acc4403820
         {blog && blog.mainImage && (
           <Image
             src={blog.mainImage}
@@ -93,6 +96,11 @@ export default function BlogPage() {
             }}
           />
         )}
+<<<<<<< HEAD
+=======
+
+        <article className="article-box">
+>>>>>>> b021ea0e17f9f2506fdb1d2b1246c7acc4403820
           {loading ? (
             <div className="wh_100 flex flex-center mt-3">
               <div className="loader"></div>
