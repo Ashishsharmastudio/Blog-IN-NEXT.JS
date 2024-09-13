@@ -4,6 +4,10 @@ import ContactImg from "../../public/contactimg.png";
 import Line from "../../public/Line-1.png";
 import { FaLocationDot } from "react-icons/fa6";
 import ContactForm from "../../components/contactForm";
+import { FaInstagram } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { RxLinkedinLogo } from "react-icons/rx";
+import { TbBrandFiverr } from "react-icons/tb";
 
 const Contact = () => {
   const [isClient, setIsClient] = useState(false);
@@ -65,18 +69,80 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
+            <div className="social-link">
+              <ul>
+                <li>
+                  <a href="#">
+                    <FaInstagram />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <BsTwitterX />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <RxLinkedinLogo />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <TbBrandFiverr />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="form-area">
-            <div className="h1">
-              <h1>Get in touch</h1>
-            </div>
-            <div className="elementor-element">
-              <div className="elementor-widget">
-                <p>* Required fields</p>
+            <div className="form-border">
+              <div className="h1">
+                <h1>Get in touch</h1>
               </div>
+              <div className="elementor-element">
+                <div className="elementor-widget">
+                  <p>* Required fields</p>
+                </div>
+              </div>
+              {isClient && <ContactForm />}
             </div>
-            {isClient && <ContactForm />}
           </div>
+        </div>
+      </section>
+      {/* sec-3 question section  */}
+      <section class="questions-section">
+        <div class="container-3">
+          <div class="content-wrapper">
+            <h2 class="heading">Have Some Questions?</h2>
+            <p class="description">
+              Let's talk about your website. Send us a message and we will be in
+              touch within one business day.
+            </p>
+            <a href="#" class="cta-button">
+              Have a Specific Question?
+            </a>
+          </div>
+        </div>
+      </section>
+      {/* End of  sec-3 question section  */}
+      {/* sec-4 news latter section  */}
+      <section class="newsletter-section">
+        <div class="container-4">
+          <h2 class="section-title">Subscribe to Our Newsletter</h2>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email here"
+                required
+              />
+            </div>
+            <button type="submit" class="subscribe-button">
+              Subscribe
+            </button>
+          </form>
         </div>
       </section>
     </>
