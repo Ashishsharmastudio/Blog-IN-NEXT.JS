@@ -8,6 +8,10 @@ import { FaHtml5, FaGithub, FaInstagram } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
 import { FaDatabase, FaXTwitter } from "react-icons/fa6";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
+import { MdOutlineDevicesOther } from "react-icons/md";
+import { FaTv } from "react-icons/fa";
+import { FaPerson } from "react-icons/fa6";
+import { RiWomenLine } from "react-icons/ri";
 
 const BannerBottom = () => {
   return (
@@ -19,7 +23,7 @@ const BannerBottom = () => {
             <Link href="/topics/mobilecomputer">
               <div className="topics">
                 <div className="flex flex-center topics_svg">
-                  <FaHtml5 />
+                  <MdOutlineDevicesOther />
                 </div>
                 <h3>Mobile & Computer</h3>
               </div>
@@ -28,9 +32,17 @@ const BannerBottom = () => {
             <Link href="/topics/tvappliances">
               <div className="topics">
                 <div className="flex flex-center topics_svg">
-                  <TbBrandNextjs />
+                  <FaTv />
                 </div>
                 <h3>TV,Appliances&Electronics</h3>
+              </div>
+            </Link>
+            <Link href="/topics/others">
+              <div className="topics">
+                <div className="flex flex-center topics_svg">
+                  <AiOutlineDeploymentUnit />
+                </div>
+                <h3>Other's</h3>
               </div>
             </Link>
           </div>
@@ -39,7 +51,7 @@ const BannerBottom = () => {
             <Link href="/topics/mensfashion">
               <div className="topics">
                 <div className="flex flex-center topics_svg">
-                  <FaDatabase />
+                  <FaPerson />
                 </div>
                 <h3>Men's Fashion</h3>
               </div>
@@ -48,21 +60,13 @@ const BannerBottom = () => {
             <Link href="/topics/fashion">
               <div className="topics">
                 <div className="flex flex-center topics_svg">
-                  <AiOutlineDeploymentUnit />
+                  <RiWomenLine />
                 </div>
                 <h3>Women's Fashion</h3>
               </div>
             </Link>
           </div>
 
-          <Link href="/topics/others">
-              <div className="topics">
-                <div className="flex flex-center topics_svg">
-                  <AiOutlineDeploymentUnit />
-                </div>
-                <h3>Other's</h3>
-              </div>
-            </Link>
         </div>
       </div>
       <div className="tags_sec">

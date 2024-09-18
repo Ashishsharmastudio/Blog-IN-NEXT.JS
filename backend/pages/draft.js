@@ -103,7 +103,7 @@ export default function draft() {
                       <td colSpan={4} className="text-center">No Draft Blogs</td>
                     </tr>
                   ) : (
-                    draftBlogs.map((blog, index) => (
+                      draftBlogs.map((blog, index) => (
                       <tr key={blog._id}>
                         <td>{indexOfFirstblog + index + 1}</td>
                         <td>{blog.title.length > 50 ? blog.title.substring(0, 50) + '...' : blog.title}</td>

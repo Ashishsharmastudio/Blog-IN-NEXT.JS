@@ -70,7 +70,17 @@ export default function Blog({
   const [tags, setTags] = useState(existingTags || []);
   const [status, setStatus] = useState(existingStatus || "");
   const [mainImage, setMainImage] = useState(existingMainImage || "");
-
+  console.log("Received props:", {
+    _id,
+    existingTitle,
+    existingSlug,
+    existingBlogcategory,
+    existingDescription,
+    existingTags,
+    existingStatus,
+    existingMainImage,
+  });
+  
   async function createProduct(ev) {
     ev.preventDefault();
     const data = {
@@ -103,6 +113,7 @@ export default function Blog({
     const inputValue = ev.target.value;
     const newSlug = inputValue.replace(/\s+/g, "-");
     setSlug(newSlug);
+    console.log("Slug:", slug);
   };
 
   const handleMainImageUpload = async (file) => {

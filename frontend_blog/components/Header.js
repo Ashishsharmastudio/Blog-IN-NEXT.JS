@@ -87,7 +87,7 @@ export default function Header() {
           <ul>
             <li><Link href={"/"}>Home</Link></li>
             <li><Link href={"/blog"}>Blog's</Link></li>
-            <li><Link href={"/contact"}>About Me</Link></li>
+            <li><Link href={"/aboutus"}>About Me</Link></li>
             <li><Link href={"/contact"}>Contact</Link></li>
           </ul>
           {/* for mobile device */}

@@ -12,6 +12,7 @@
     "aos": "^2.3.4",
     "axios": "^1.7.2",
     "html-react-parser": "^5.1.15",
+    "lucide-react": "^0.441.0",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.0",
     "next": "^14.2.5",
