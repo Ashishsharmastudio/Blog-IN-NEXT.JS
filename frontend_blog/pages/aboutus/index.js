@@ -7,7 +7,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import Team from "../../public/Author.jpg";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import Presentation from "../../public/Presentation.jpg";
-import Men from "../../public/Men.jpg";
+import Men from "../../public/Men.png";
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 const pageData = {
