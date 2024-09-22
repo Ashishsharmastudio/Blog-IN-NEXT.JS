@@ -389,17 +389,17 @@ a {
 .nav_list_dark ul li a {
   font-size: 18px;
   font-weight: 600;
-  color: #93c5fd;
+  color:  #1D3557;
 }
 
 .dark .nav_list_dark ul li a {
   font-size: 18px;
   font-weight: 600;
-  color: #93c5fd;
+  color: #A8DADC;
 }
 
 .nav_list_dark ul li a:hover {
-  color: #c8d7f2;
+  color: #457B9D;
 }
 
 /* navlist_mobile */
@@ -1012,11 +1012,11 @@ a {
   padding: 0.3rem 1rem;
   border-radius: 10px;
   text-transform: capitalize;
-  margin: 0px 10px;
+  margin: 10px 10px;
 }
 
 .blogtag:hover {
-  background-color: #8099ab;
+  background-color: #457B9D;
   color: #fff;
 }
 
@@ -1174,7 +1174,7 @@ a {
 }
 
 .topics:hover .topics_svg {
-  background-color: #667eea;
+  background-color: #457B9D;
   color: #fff;
 }
 
@@ -1219,7 +1219,7 @@ a {
 }
 
 .tags_list a:hover {
-  background-color: #818a94;
+  background-color: #457B9D;  
   color: #fff;
 }
 
@@ -1309,7 +1309,7 @@ a {
 
 .footer_logo h2 {
   font-size: 30px;
-  color: #667eea;
+  color: #2ec79a;
   margin-bottom: 1rem;
 }
 
@@ -1924,7 +1924,7 @@ a {
   justify-content: space-between;
   display: flex;
   width: 85%;
-  background-color: #93c5fd; /* Equivalent to bg-blue-300 */
+  background-color: #a8dadc; /* Equivalent to bg-blue-300 */
   padding: 2.5rem 2rem;
   gap: 20px;
 }
@@ -2014,7 +2014,7 @@ a {
 
 .icon {
   font-size: 2.25rem;
-  color: #d1d5db;
+  color: #2ec79a;
   transition: color 0.3s ease;
 }
 
@@ -2188,7 +2188,6 @@ a {
 .address li {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   margin-bottom: 10px;
 }
 
@@ -2309,7 +2308,7 @@ a {
 }
 
 .elementor-button {
-  background-color: #4CAF50;
+  background-color:  #2ec79a;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -2321,7 +2320,7 @@ a {
 }
 
 .elementor-button:hover {
-  background-color: #45a049;
+  background-color: #a8dadc;
 }
 
 .elementor-button-text {
@@ -2422,7 +2421,7 @@ a {
 .cta-button {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #007bff;
+  background-color: #2ec79a;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -2431,7 +2430,7 @@ a {
 }
 
 .cta-button:hover {
-  background-color: #0056b3;
+  background-color: #a8dadc;
 }
 /* end of section 3 and  question section  */
 
@@ -2478,7 +2477,7 @@ input[type="email"] {
 .subscribe-button {
   padding: 12px 24px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #2ec79a;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -2487,7 +2486,7 @@ input[type="email"] {
 }
 
 .subscribe-button:hover {
-  background-color: #0056b3;
+  background-color: #a8dadc;
 }
 
 @media (max-width: 768px) {
@@ -2511,7 +2510,7 @@ input[type="email"] {
 /* section 1 */
 .about-us-section {
   text-align: center;
-  padding: 90px 0px; /* Adjust padding as needed */
+  padding: 150px 0px; /* Adjust padding as needed */
   background-image: url('../public/blank.jpg'); /* Replace with your image path */
   background-size: cover; /* Adjust background size as needed */
   background-position: center; /* Adjust background position as needed */
@@ -2532,27 +2531,49 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  background-color: #f0f0f0; /* Replace with your desired background color */
+  background-color: black ; /* Replace with your desired background color */
 }
-
 .about-us-image {
   flex: 1;
   text-align: center;
+}
+.about-us-image img{
+  width: 65%;
+  height: auto;
+}
+.about-us-image {
+  flex: 1;
+  text-align: center;
+}
+.about-us-text{
+   width: 68%;
+}
+.about-us-text h1{
+   font-size: 44px;
 }
 
 .about-us-content {
   flex: 1;
   padding: 20px;
 }
-.about-us-content h3{
+.elementor-1{
+  width: 15%;
+}
+.about-us-content h3 {
   font-size: 24px;
-  color: navy;
-  margin-bottom: 10px;
+  color: #f7f9fa;
+  font-weight: 300;
 }
 .about-us-content h1{
-  font-size: 35px;
-  color: navy;
+  font-size: 30px;
+  color: #f7f9fa;
   margin-bottom: 10px;
+  font-weight: 800;
+}
+.about-us-content p{
+  color:#f7f9fa;
+  font-weight: 200;
+  margin: 0px;
 }
 
 .certification-section {
@@ -2565,15 +2586,14 @@ p {
 .certified-company, .expert-team {
   display: flex;
 }
-.image-area-1{
-  height: 50px;
-  width: 40px;
+.image-area-1 {
+  width: 70px;  /* Increased from 40px */
+  height: 70px; /* Added to maintain aspect ratio */
   margin: auto;
+  display: flex; /* Added to center the icon */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
-/* .text-area-1{
-
-} */
-
 
 h3 {
   margin: 0;
@@ -2590,17 +2610,26 @@ p {
   padding: 20px;
 }
 
-.discover-more-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+.btn-2 {
+  border: 2px solid wheat;
+  background-color: transparent;
+  padding: 20px;
   color: white;
-  border: none;
-  cursor: pointer;
+  border-radius: 8px;
+}
+.btn-2:hover {
+  background-color: #2dc799;
 }
 
 .phone-icon-container {
   display: flex;
   align-items: center;
+  border: 2px solid wheat;
+  padding: 16px;
+  border-radius: 8px;
+}
+.phone-icon-container:hover {
+  background-color: #2dc799;
 }
 
 .phone-icon {
@@ -2670,13 +2699,13 @@ p {
 }
 /* section - 4 css */
 .stats-section {
-  background-color: #684df4; /* Adjust background color as needed */
+  background-color: #f5f5f5; /* Adjust background color as needed */
   padding: 20px;
 }
 
 .stats-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 40px;
 }
@@ -2687,7 +2716,11 @@ p {
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-
+.stats-icon{
+  width: auto;
+  height: auto;
+  color: #2ec79a;
+}
 .stat-number {
   font-size: 24px;
   font-weight: bold;
@@ -2695,7 +2728,7 @@ p {
 
 .stat-label {
   font-size: 14px;
-  color: #666;
+  color: #457b9d;
 }
 /* section - 5 css */
 .choose-us-section {
@@ -2717,22 +2750,25 @@ p {
 }
 
 .con-1 h1{
-  font-size: 40px;
+  font-size: 35px;
   margin-bottom: 10px;
 }
 .con-1 h1 span{
-  color: blue;
+  color: #2ec79a;
 }
 
 
 .con-1 p{
   color: grey;
+  font-size: 17px;
 }
 .con-2{
   width: 50%;
+  display: flex;
+  justify-content: center;
 }
 .con-2 img{
-  width: 70%;
+  width: 90%;
   height: auto;
 }
 .objective-con{
@@ -2750,13 +2786,15 @@ p {
   display: flex;
 }
 .pointer-icon{
-  margin: auto 0px;
+  margin: 10px 10px;
+  color: #2ec79a;
 }
 .pointer-text{
   margin: auto 0px;
 }
 .pointer-text h3{
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .features ul {
   list-style: none;
@@ -2772,7 +2810,7 @@ p {
   text-align: center;
 }
 .testimonial-section-text h3{
-  color: white;
+  color: #2ec79a;
   padding-top: 30px;
 }
 .testimonial-section-text h1{
@@ -2782,7 +2820,7 @@ p {
 }
 .testimonial-section-text h2{
   padding-top: 10px;
-  color: #0056b3;
+  color: #2ec79a;
   font-size: 24px;
 }
 /* card css */
@@ -2818,15 +2856,13 @@ p {
 }
 
 .rating {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+ justify-content: center;
   display: flex;
   align-items: center;
 }
 
 .star {
-  color: gold;
+  color: #2ec79a;
   font-size: 16px;
   margin-right: 2px;
 }
@@ -2845,17 +2881,18 @@ p {
 .profile-info h3 {
   font-size: 20px;
   font-weight: bold;
-  color: #333;
+  color: #2ec79a;
   margin-bottom: 5px;
 }
 /* end of sectin - 6 css*/
  /*start of section - 7 */
  .header-container {
   display: flex;
-  align-items: center;
-  background: linear-gradient(to right, #1a202c, #6b46c1);
-  color: white;
-  padding: 1rem;
+    align-items: center;
+    background: #f5f5f5;
+    color: black;
+    padding: 2rem;
+    border: 8px solid white;
 }
 
 .logo-container {
@@ -2890,7 +2927,7 @@ p {
 
 .contact-info {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex-grow: 1;
 }
 
@@ -2899,6 +2936,9 @@ p {
   align-items: center;
   cursor: pointer;
   margin-left: 2rem;
+}
+.contact-item span{
+  font-size: 16px;
 }
 
 .icon {
@@ -2919,11 +2959,7 @@ p {
     width: 100%;
   }
 
-  .contact-info {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 1rem;
-  }
+ 
 
   .contact-item {
     margin-left: 0;
@@ -2939,8 +2975,8 @@ p {
   margin-bottom: 10px;
 }
 
-img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
+img {                                                                                                         
+  max-width: 100%;       
+                                                                              
 }
+/* display: block; */

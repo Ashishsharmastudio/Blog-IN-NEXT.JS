@@ -62,7 +62,7 @@ const Contact = () => {
                     <FaLocationDot />
                   </span>
                   <span>
-                    1 First Street, Suite #220B Collingwood, Ontario,
+                    Hansari Jhansi
                     <br />
                     L9Y 1A1
                   </span>

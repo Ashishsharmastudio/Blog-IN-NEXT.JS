@@ -8,7 +8,17 @@ import Team from "../../public/Author.jpg";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import Presentation from "../../public/Presentation.jpg";
 import Men from "../../public/Men.png";
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Icon } from "lucide-react";
+import Line from "../../public/Line-1.png";
+import { FaFileCircleCheck } from "react-icons/fa6";
+import { PiSmileyFill } from "react-icons/pi";
+// import { GrUserExpert } from "react-icons/gr";
+import { FaAward } from "react-icons/fa6";
+import { CiCircleCheck } from "react-icons/ci";
+import Feedback1 from "../../public/Feedbac-1.jpg";
+import Feedback2 from "../../public/Feedback-2.jpg";
+import Feedback3 from "../../public/Feedback-3.jpg";
+import { IoIosArrowDropleft } from "react-icons/io";
 
 const pageData = {
   teamMembers: [
@@ -25,24 +35,25 @@ const pageData = {
     // Add more team members here
   ],
   pointers: [
-    { title: "Our Objective", icon: IoMdCheckmarkCircle },
-    { title: "Our Vision", icon: IoMdCheckmarkCircle },
-    { title: "Our Mission", icon: IoMdCheckmarkCircle },
+    { title: "Certified Excellence", icon: CiCircleCheck },
+    { title: "Skilled Artisans", icon: CiCircleCheck },
+    { title: "Visionary Approach", icon: CiCircleCheck },
   ],
   pointers2: [
-    { title: "Our Objectives", icon: IoMdCheckmarkCircle },
-    { title: "Our Visions", icon: IoMdCheckmarkCircle },
-    { title: "Our Missions", icon: IoMdCheckmarkCircle },
+    { title: "Full-Stack Mastery", icon: CiCircleCheck },
+    { title: "Innovative Solutions", icon: CiCircleCheck },
+    { title: "Client-Centric Focus", icon: CiCircleCheck },
   ],
   stats: [
-    { number: "986+", label: "Finished Projects" },
-    { number: "896+", label: "Happy Clients" },
-    { number: "396+", label: "Skilled Experts" },
-    { number: "496+", label: "Honorable Awards" },
+    { icon:FaFileCircleCheck, number: "986+", label: "Finished Projects" },
+    { icon:PiSmileyFill, number: "896+", label: "Happy Clients" },
+    { icon:GrUserExpert, number: "396+", label: "Skilled Experts" },
+    { icon:FaAward, number: "496+", label: "Honorable Awards" },
   ],
+  
   profileCards: [
     {
-      image: Men,
+      image: Feedback1,
       rating: 5,
       description:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration. Globally synergize resource sucking value via cutting-edge.",
@@ -51,7 +62,7 @@ const pageData = {
     },
     // Add three more profile card objects here with different data
     {
-      image: Men,
+      image: Feedback2,
       rating: 4,
       description:
         "Efficiently implement customer-centric solutions through strategic partnerships. Proactively leverage existing high-quality products to drive innovation. Seamlessly maximize client-based deliverables.",
@@ -59,7 +70,7 @@ const pageData = {
       position: "CTO at TechCorp",
     },
     {
-      image: Men,
+      image: Feedback3,
       rating: 5,
       description:
         "Dynamically evolve cross-platform technologies through user-centric methodologies. Collaboratively scale backward-compatible architectures with sustainable e-markets. Enthusiastically cultivate synergistic paradigms.",
@@ -72,23 +83,25 @@ const pageData = {
 const About = () => {
   // redirectin function secction - 7
   const handlePhoneClick = () => {
-    window.location.href = 'tel:+19088000393';
+    window.location.href = "tel:+91 9140585097";
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:info@webteck.com';
+    window.location.href = "mailto:info@ashishsharmastudio@gmial.com";
   };
 
   const handleLocationClick = () => {
-    window.open('https://maps.google.com/?q=54 Flemington, USA', '_blank');
+    window.open("https://maps.google.com/?q=54 jhansi,India", "_blank");
   };
 
   return (
     // sectino -1
     <section>
       <div className="about-us-section">
-        <h1>About Us</h1>
-        <p>Home &gt;&gt; About Us</p>
+        <div className="about-us-text">
+          <h1>About Us</h1>
+          <p>Home &gt;&gt; About Us</p>
+        </div>
       </div>
       {/* section- 2 */}
       <section className="about-us-section-2">
@@ -97,19 +110,29 @@ const About = () => {
         </div>
         <div className="about-us-content">
           <h3>ABOUT US</h3>
+          <div className="elementor-1">
+            <Image
+              decoding="async"
+              width="289"
+              height="14"
+              src={Line}
+              className="attachment-large size-large wp-image-238180"
+              alt=""
+            />
+          </div>
           <h1>
-            We Are Increasing Business <br /> Success With IT Solution
+            We Transform Ideas into Full-Stack Realities <br /> Crafting Digital
+            Ecosystems
           </h1>
           <p>
-            Collaboratively envisioneer user-friendly supply chains and
-            cross-unit Imperative. Authoritatively fabricate competitive
-            resource and holistic synergy. Uniquely generate efficient schemas
-            before future.
+            At the intersection of creativity and technology, we stand as
+            architects of the digital realm. Our passion? Breathing life into
+            your vision through the art and science of full-stack development.
           </p>
           <div className="certification-section">
             <div className="certified-company">
               <div className="image-area-1">
-                <PiCertificateBold />
+                <PiCertificateBold color="#2ec79a" size={50} />
               </div>
               <div className="text-area-1">
                 <h3>Certified Company</h3>
@@ -118,7 +141,7 @@ const About = () => {
             </div>
             <div className="certified-company">
               <div className="image-area-1">
-                <GrUserExpert height={100} width={100} />
+                <GrUserExpert color="#2ec79a" size={50} />
               </div>
               <div className="text-area-1">
                 <h3>Certified Company</h3>
@@ -128,16 +151,16 @@ const About = () => {
           </div>
           <hr />
           <div className="call-to-action">
-            <button className="discover-more-button">DISCOVER MORE →</button>
+            <button className="btn-2">DISCOVER MORE →</button>
             <div className="phone-icon-container">
-              <FaPhoneAlt className="phone-icon" />
-              <p>Call Us On: +190-8800-0393</p>
+              <FaPhoneAlt color="white" className="phone-icon" />
+              <p onClick={handlePhoneClick}>Call Us On: +91 9140585097</p>
             </div>
           </div>
         </div>
       </section>
       {/* section-3 */}
-      <section className="team-member-section">
+      {/* <section className="team-member-section">
         <h2>See Our Skilled Expert Team</h2>
         <div className="team-members">
           {pageData.teamMembers.map((member, index) => (
@@ -157,14 +180,19 @@ const About = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
       {/*  section -4 */}
       <section className="stats-section">
         <div className="stats-container">
           {pageData.stats.map((stat, index) => (
             <div className="stat" key={index}>
-              <div className="stat-number">{stat.number}</div>
+              <div className="stats-icon">
+                <stat.icon size={40} />
+              </div>
+              <div className="stat-number">{stat.number}
               <div className="stat-label">{stat.label}</div>
+              </div>
+              
             </div>
           ))}
         </div>
@@ -175,19 +203,17 @@ const About = () => {
           <div className="con-1">
             <h2>Why Choose Us</h2>
             <h1>
-              We Deal With The Aspects Professional<span> IT Service </span>
+            We Architect <span>Digital Ecosystems</span> with Full-Stack Mastery
             </h1>
             <p>
-              This code creates a webpage that tells visitors about a <br />{" "}
-              company or organization. It doesn't take any inputs directly, but
-              it uses
+            At the crossroads of innovation and technology, we transform ideas into tangible digital realities,crafting bespoke solutions for the modern age.
             </p>
             <div className="objective-con">
               <div className="objective-con-1">
                 {pageData.pointers.map((pointer, index) => (
                   <div className="pointer" key={index}>
                     <div className="pointer-icon">
-                      <pointer.icon />
+                      <pointer.icon size={30} />
                     </div>
                     <div className="pointer-text">
                       <h3>{pointer.title}</h3>
@@ -199,7 +225,7 @@ const About = () => {
                 {pageData.pointers2.map((pointer, index) => (
                   <div className="pointer" key={index}>
                     <div className="pointer-icon">
-                      <pointer.icon />
+                      <pointer.icon size={30} />
                     </div>
                     <div className="pointer-text">
                       <h3>{pointer.title}</h3>
@@ -245,32 +271,41 @@ const About = () => {
       </section>
       {/* section - 7 */}
       <section className="header-container">
-      <div className="logo-container">
-        <svg className="logos" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13 3L4 9V21H20V9L11 3L13 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        <span className="company-name">WebTeck</span>
-      </div>
-      <div className="content-container">
-        <svg className="arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        <div className="contact-info">
-          <div className="contact-item" onClick={handlePhoneClick}>
-            <Phone className="icon" />
-            <span>Quick Call Us: +190-8800-0393</span>
-          </div>
-          <div className="contact-item" onClick={handleEmailClick}>
-            <Mail className="icon" />
-            <span>Mail Us On: info@webteck.com</span>
-          </div>
-          <div className="contact-item" onClick={handleLocationClick}>
-            <MapPin className="icon" />
-            <span>Visit Location: 54 Flemington, USA</span>
+        <div className="logo-container">
+          <svg
+            className="logos"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13 3L4 9V21H20V9L11 3L13 3Z"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span className="company-name">WebTeck</span>
+        </div>
+        <div className="content-container">
+        <IoIosArrowDropleft size={40} color="#2ec79a"/>
+          <div className="contact-info">
+            <div className="contact-item" onClick={handlePhoneClick}>
+              <Phone  className="icon" />
+              <span>Quick Call Us: +91 9140585097</span>
+            </div>
+            <div className="contact-item" onClick={handleEmailClick}>
+              <Mail className="icon" />
+              <span>Mail Us On: ashishsharmastudio@gmail.com</span>
+            </div>
+            <div className="contact-item" onClick={handleLocationClick}>
+              <MapPin className="icon" />
+              <span>Visit Location: 54 Flemington, USA</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </section>
   );
 };
