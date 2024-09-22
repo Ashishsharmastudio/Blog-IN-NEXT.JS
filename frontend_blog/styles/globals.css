@@ -2511,7 +2511,7 @@ input[type="email"] {
 .about-us-section {
   text-align: center;
   padding: 150px 0px; /* Adjust padding as needed */
-  background-image: url('../public/blank.jpg'); /* Replace with your image path */
+  background-image: url('/blank.jpg'); 
   background-size: cover; /* Adjust background size as needed */
   background-position: center; /* Adjust background position as needed */
   color: white;
@@ -2899,6 +2899,7 @@ p {
   display: flex;
   align-items: center;
   margin-right: 2rem;
+  gap: 5px;
 }
 
 .logos {
@@ -2938,7 +2939,11 @@ p {
   margin-left: 2rem;
 }
 .contact-item span{
-  font-size: 16px;
+  font-size: 14px;
+  color: #1D3557;
+}
+.contact-item span:hover{
+  color: #457B9D;
 }
 
 .icon {

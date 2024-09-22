@@ -12,13 +12,14 @@ import { Phone, Mail, MapPin, Icon } from "lucide-react";
 import Line from "../../public/Line-1.png";
 import { FaFileCircleCheck } from "react-icons/fa6";
 import { PiSmileyFill } from "react-icons/pi";
-// import { GrUserExpert } from "react-icons/gr";
 import { FaAward } from "react-icons/fa6";
 import { CiCircleCheck } from "react-icons/ci";
 import Feedback1 from "../../public/Feedbac-1.jpg";
 import Feedback2 from "../../public/Feedback-2.jpg";
 import Feedback3 from "../../public/Feedback-3.jpg";
 import { IoIosArrowDropleft } from "react-icons/io";
+import AboutImg from "../../public/blank.jpg";
+import { IoHomeOutline } from "react-icons/io5";
 
 const pageData = {
   teamMembers: [
@@ -84,6 +85,9 @@ const About = () => {
   // redirectin function secction - 7
   const handlePhoneClick = () => {
     window.location.href = "tel:+91 9140585097";
+  };
+  const handlewhatsappClick = () => {
+    window.location.href = "https://wa.me/9140585097"; 
   };
 
   const handleEmailClick = () => {
@@ -272,21 +276,8 @@ const About = () => {
       {/* section - 7 */}
       <section className="header-container">
         <div className="logo-container">
-          <svg
-            className="logos"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13 3L4 9V21H20V9L11 3L13 3Z"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span className="company-name">WebTeck</span>
+          <IoHomeOutline color="#2ec79a" size={18}/>
+          <span className="company-name">Ashish</span>
         </div>
         <div className="content-container">
         <IoIosArrowDropleft size={40} color="#2ec79a"/>
@@ -295,13 +286,17 @@ const About = () => {
               <Phone  className="icon" />
               <span>Quick Call Us: +91 9140585097</span>
             </div>
+            <div className="contact-item" onClick={handlewhatsappClick}>
+              <Phone  className="icon" />
+              <span>Whatsapp Us: +91 9140585097</span>
+            </div>
             <div className="contact-item" onClick={handleEmailClick}>
               <Mail className="icon" />
               <span>Mail Us On: ashishsharmastudio@gmail.com</span>
             </div>
             <div className="contact-item" onClick={handleLocationClick}>
               <MapPin className="icon" />
-              <span>Visit Location: 54 Flemington, USA</span>
+              <span>Visit Location: Jhansi UP</span>
             </div>
           </div>
         </div>
