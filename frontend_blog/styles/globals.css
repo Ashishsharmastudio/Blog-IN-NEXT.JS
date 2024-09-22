@@ -2511,7 +2511,7 @@ input[type="email"] {
 .about-us-section {
   text-align: center;
   padding: 150px 0px; /* Adjust padding as needed */
-  background-image: url('../public/blank.jpg'); /* Replace with your image path */
+  background-image: url('../../public/blank.jpg'); /* Replace with your image path */
   background-size: cover; /* Adjust background size as needed */
   background-position: center; /* Adjust background position as needed */
   color: white;
