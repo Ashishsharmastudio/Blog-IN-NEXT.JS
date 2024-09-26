@@ -11,6 +11,6 @@ const BlogSchema = new Schema({
     status: { type: String },
     mainImage: { type: String }
 },
-    { timestams:true}  // this option will automatically manage createdat   abd updatedat fields
+    { timestamps:true}  // this option will automatically manage createdat   abd updatedat fields
 );
 export const Blog = models.Blog || model('Blog',BlogSchema,'blogtest');

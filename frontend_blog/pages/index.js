@@ -211,8 +211,8 @@ export default function Home() {
                         <div className="flex flex-col flex-left gap-05">
                           <h4>Ashish Sharma</h4>
                           <span>
-                            {new Date(blog.createAt).toLocaleDateString(
-                              "en-Us",
+                            {new Date(blog.createdAt).toLocaleDateString(
+                              "en-US",
                               {
                                 month: "long",
                                 day: "numeric",

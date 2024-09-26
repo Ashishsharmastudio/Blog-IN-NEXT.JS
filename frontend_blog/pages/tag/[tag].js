@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import NoImg from "@/public/noimage.jpg";
 import Image from "next/image";
 import axios from "axios";
@@ -33,24 +33,23 @@ export default function TagPage() {
     } else {
       router.push("/404");
     }
-  }, [tag]);
+  }, [tag, router]);
+
+  const publishedBlogs = useMemo(() => {
+    return blog.filter((ab) => ab.status === "publish" && ab.tags.includes(tag));
+  }, [blog, tag]);
+
+  const totalBlogs = publishedBlogs.length;
+  const totalPages = Math.ceil(totalBlogs / perPage);
+
+  const currentBlogs = useMemo(() => {
+    const startIndex = (currentPage - 1) * perPage;
+    return publishedBlogs.slice(startIndex, startIndex + perPage);
+  }, [publishedBlogs, currentPage, perPage]);
 
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    setCurrentPage(Math.min(Math.max(1, pageNumber), totalPages));
   };
-
-  const indexOfLastBlog = currentPage * perPage;
-  const indexOfFirstBlog = indexOfLastBlog - perPage;
-  const currentBlogs = blog.slice(indexOfFirstBlog, indexOfLastBlog);
-
-  const allBlog = blog.length;
-  const pageNumbers = [];
-
-  for (let i = 1; i < Math.ceil(allBlog / perPage); i++) {
-    pageNumbers.push(i);
-  }
-
-  const publishedBlogs = blog.filter((ab) => ab.status === "publish" && ab.tags.includes(tag));
 
   function extractFirstImageUrl(markdownContent) {
     if (!markdownContent || typeof markdownContent !== "string") {
@@ -71,7 +70,7 @@ export default function TagPage() {
               <h1>
                 {loading ? (
                   <div>Loading...</div>
-                ) : publishedBlogs ? (
+                ) : publishedBlogs.length > 0 ? (
                   publishedBlogs[0]?.blogcategory
                 ) : (
                   tag
@@ -91,7 +90,7 @@ export default function TagPage() {
                 <div className="loader"></div>
               </div>
             ) : (
-              publishedBlogs.map((item) => {
+              currentBlogs.map((item) => {
                 const firstImageUrl = extractFirstImageUrl(item.body);
                 return (
                   <div className="cate_blog" key={item._id}>
@@ -104,7 +103,7 @@ export default function TagPage() {
                         layout="responsive"
                       />
                     </Link>
-  
+
                     <div className="bloginfo mt-2">
                       <Link href={`/tag/${item.tags?.[0] ?? ""}`}>
                         <div className="blogtag">
@@ -114,8 +113,8 @@ export default function TagPage() {
                       <Link href={`/blog/${item.slug}`}>
                         <h3>{item.title}</h3>
                       </Link>
-                      <p className="blog-description">
-                         <h3>{item.description}</h3>
+                      <p className="blog-descriptions">
+                        {item.description}
                       </p>
                       <div className="blogauthor flex gap-1 ">
                         <div className="blogaimg">
@@ -125,7 +124,7 @@ export default function TagPage() {
                           <h4>Ashish Sharma</h4>
                           <span>
                             {new Date(item.createAt).toLocaleDateString(
-                              "en-Us",
+                              "en-US",
                               {
                                 month: "long",
                                 day: "numeric",
@@ -140,38 +139,39 @@ export default function TagPage() {
                 );
               })
             )}
-            {/* pagination code  */}
-            <div className="blogpagination">
-              <button
-                onClick={() => paginate(currentPage - 1)}
-                disabled={currentPage === 1}
-              >
-                Previous
-              </button>
-              {pageNumbers
-                .slice(
-                  Math.max(currentPage - 3, 0),
-                  Math.min(currentPage + 2, pageNumbers.length)
-                )
-                .map((number) => (
-                  <button
-                    key={number}
-                    onClick={() => paginate(number)}
-                    className={currentPage === number ? "active" : ""}
-                  >
-                    {number}
-                  </button>
-                ))}
-              <button
-                onClick={() => paginate(currentPage + 1)}
-                disabled={currentBlogs.length < perPage}
-              >
-                Next
-              </button>
-            </div>
+           
           </div>
         </div>
       </div>
+      {!loading && currentBlogs.length > 0 && (
+              <nav className="blogpagination" aria-label="Pagination">
+                <button
+                  onClick={() => paginate(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  aria-label="Previous page"
+                >
+                  Previous
+                </button>
+                {[...Array(totalPages).keys()].map((number) => (
+                  <button
+                    key={number + 1}
+                    onClick={() => paginate(number + 1)}
+                    className={currentPage === number + 1 ? "active" : ""}
+                    aria-label={`Page ${number + 1}`}
+                    aria-current={currentPage === number + 1 ? "page" : undefined}
+                  >
+                    {number + 1}
+                  </button>
+                ))}
+                <button
+                  onClick={() => paginate(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  aria-label="Next page"
+                >
+                  Next
+                </button>
+              </nav>
+            )}
     </div>
-  )
+  );
 }
