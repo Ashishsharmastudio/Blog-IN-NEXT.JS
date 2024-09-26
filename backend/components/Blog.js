@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState, useMemo, forwardRef } from "react";
+import { useState, useMemo, forwardRef, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 
 const ReactQuill = dynamic(
@@ -14,9 +14,9 @@ const ReactQuill = dynamic(
 
     Quill.register("modules/imageUploader", ImageUploader);
 
-    return forwardRef(function comp(props, ref) {
-      return <RQ ref={ref} {...props} />;
-    });
+    return function comp(props) {
+      return <RQ {...props} />;
+    };
   },
   {
     ssr: false,
@@ -50,43 +50,47 @@ const uploadImage = (file) => {
   });
 };
 
+const QuillWrapper = forwardRef((props, ref) => {
+  return (
+    <div ref={ref}>
+      <ReactQuill {...props} />
+    </div>
+  );
+});
+
+QuillWrapper.displayName = 'QuillWrapper';
+
 export default function Blog({
   _id,
   title: existingTitle,
+  description: existingDescription,
   slug: existingSlug,
   blogcategory: existingBlogcategory,
-  description: existingDescription,
+  body: existingBody,
   tags: existingTags,
   status: existingStatus,
   mainImage: existingMainImage,
 }) {
   const [redirect, setRedirect] = useState(false);
   const router = useRouter();
+  const quillRef = useRef();
 
   const [title, setTitle] = useState(existingTitle || "");
+  const [description, setDescription] = useState(existingDescription || "");
   const [slug, setSlug] = useState(existingSlug || "");
   const [blogcategory, setBlogcategory] = useState(existingBlogcategory || []);
-  const [description, setDescription] = useState(existingDescription || "");
+  const [body, setBody] = useState(existingBody || "");
   const [tags, setTags] = useState(existingTags || []);
   const [status, setStatus] = useState(existingStatus || "");
   const [mainImage, setMainImage] = useState(existingMainImage || "");
-  console.log("Received props:", {
-    _id,
-    existingTitle,
-    existingSlug,
-    existingBlogcategory,
-    existingDescription,
-    existingTags,
-    existingStatus,
-    existingMainImage,
-  });
-  
+
   async function createProduct(ev) {
     ev.preventDefault();
     const data = {
       title,
-      slug,
       description,
+      slug,
+      body,
       blogcategory,
       tags,
       status,
@@ -113,7 +117,6 @@ export default function Blog({
     const inputValue = ev.target.value;
     const newSlug = inputValue.replace(/\s+/g, "-");
     setSlug(newSlug);
-    console.log("Slug:", slug);
   };
 
   const handleMainImageUpload = async (file) => {
@@ -126,23 +129,72 @@ export default function Blog({
   };
 
   const handleImageUrlInput = (url) => {
-    try {
-      const validUrl = new URL(url);
-      setMainImage(validUrl.href);
-    } catch (error) {
+    const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    if (urlPattern.test(url)) {
+      setMainImage(url);
+    } else {
       console.error("Invalid image URL:", url);
+    }
+  };
+
+  const imageHandler = useCallback(() => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files[0];
+      if (file) {
+        try {
+          const imageUrl = await uploadImage(file);
+          insertToEditor(imageUrl);
+        } catch (error) {
+          console.error('Error uploading image:', error);
+        }
+      }
+    };
+  }, []);
+
+  const insertToEditor = (url) => {
+    if (quillRef.current) {
+      const editor = quillRef.current.querySelector('.ql-editor');
+      if (editor) {
+        const range = document.getSelection().getRangeAt(0);
+        const img = document.createElement('img');
+        img.src = url;
+        range.insertNode(img);
+      }
+    }
+  };
+
+  const handleImageUrl = () => {
+    const url = prompt('Enter the image URL:');
+    if (url && quillRef.current) {
+      const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+      if (urlPattern.test(url)) {
+        insertToEditor(url);
+      } else {
+        console.error('Invalid image URL:', url);
+      }
     }
   };
 
   const modules = useMemo(
     () => ({
-      toolbar: [
-        [{ header: [1, 2, 3, 4, 5, 6, false] }], 
-        ["bold", "italic", "underline", "strike"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["link", "image"],
-        ["clean"],
-      ],
+      toolbar: {
+        container: [
+          [{ header: [1, 2, 3, 4, 5, 6, false] }],
+          ["bold", "italic", "underline", "strike"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          ["link", "image", "imageUrl"],
+          ["clean"],
+        ],
+        handlers: {
+          image: imageHandler,
+          imageUrl: handleImageUrl,
+        },
+      },
       imageUploader: {
         upload: uploadImage,
       },
@@ -187,6 +239,16 @@ export default function Blog({
         />
       </div>
       <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
+        <label htmlFor="title">Description</label>
+        <input
+          type="text"
+          value={description}
+          id="description"
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Enter small Description "
+        />
+      </div>
+      <div className="w-100 flex flex-col flex-left mb-2" data-aos="fade-up">
         <label htmlFor="slug">Slug</label>
         <input
           type="text"
@@ -216,7 +278,6 @@ export default function Blog({
           <option value="fashion">Women's Fashion</option>
           <option value="others">Other's</option>
         </select>
-
         <p className="existingcategory flex gap-1 mt-1 mb-1">
           selected:{" "}
           {Array.isArray(blogcategory) &&
@@ -225,11 +286,12 @@ export default function Blog({
             ))}
         </p>
       </div>
-      <div className="description w-100 flex flex-col flex-left mb-2">
-        <label htmlFor="description">Blog Content</label>
-        <ReactQuill
-          value={description}
-          onChange={setDescription}
+      <div className="body w-100 flex flex-col flex-left mb-2">
+        <label htmlFor="body">Blog Content</label>
+        <QuillWrapper
+          ref={quillRef}
+          value={body}
+          onChange={setBody}
           modules={modules}
           style={{ height: "400px", width: "1200px" }}
         />
@@ -263,7 +325,6 @@ export default function Blog({
           <option value="productivity">Productivity</option>
           <option value="security">Security</option>
         </select>
-
         <p className="existingcategory flex gap-1 mt-1 mb-1">
           selected:
           {Array.isArray(tags) &&
