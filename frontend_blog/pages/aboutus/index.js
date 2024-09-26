@@ -56,7 +56,7 @@ const pageData = {
     {
       image: Feedback1,
       rating: 5,
-      description:
+      body:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration. Globally synergize resource sucking value via cutting-edge.",
       name: "Jackline Techie",
       position: "CEO at Kormola",
@@ -65,7 +65,7 @@ const pageData = {
     {
       image: Feedback2,
       rating: 4,
-      description:
+      body:
         "Efficiently implement customer-centric solutions through strategic partnerships. Proactively leverage existing high-quality products to drive innovation. Seamlessly maximize client-based deliverables.",
       name: "John Smith",
       position: "CTO at TechCorp",
@@ -73,7 +73,7 @@ const pageData = {
     {
       image: Feedback3,
       rating: 5,
-      description:
+      body:
         "Dynamically evolve cross-platform technologies through user-centric methodologies. Collaboratively scale backward-compatible architectures with sustainable e-markets. Enthusiastically cultivate synergistic paradigms.",
       name: "Emma Johnson",
       position: "COO at InnovateCo",
@@ -265,7 +265,7 @@ const About = () => {
                 </div>
               </div>
               <div className="profile-info">
-                <p>{card.description}</p>
+                <p>{card.body}</p>
                 <h3>{card.name}</h3>
                 <p>{card.position}</p>
               </div>
@@ -277,7 +277,7 @@ const About = () => {
       <section className="header-container">
         <div className="logo-container">
           <IoHomeOutline color="#2ec79a" size={18}/>
-          <span className="company-name">Ashish</span>
+          <span className="company-name"><a href="https://www.linkedin.com/in/ashish-sharma-rrr/" target="_blank">Ashish</a></span>
         </div>
         <div className="content-container">
         <IoIosArrowDropleft size={40} color="#2ec79a"/>

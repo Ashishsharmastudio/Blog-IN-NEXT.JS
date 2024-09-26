@@ -37,7 +37,15 @@ export default function Home() {
   useEffect(() => {
     if (!loading && alldata.length > 0) {
     }
-  }, [currentPage, perPage, totalPages, currentBlogs, loading, alldata, publishedBlogs]);
+  }, [
+    currentPage,
+    perPage,
+    totalPages,
+    currentBlogs,
+    loading,
+    alldata,
+    publishedBlogs,
+  ]);
 
   const sliderSettings = {
     dots: true,
@@ -51,25 +59,25 @@ export default function Home() {
 
   useEffect(() => {
     if (!loading && publishedBlogs.length > 0) {
-      const script = document.createElement('script');
-      script.type = 'application/ld+json';
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
       script.textContent = JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "Your Tech Review Blog",
-        "url": "https://yourdomain.com",
-        "description": "In-depth reviews of the latest tech products and gadgets",
-        "blogPost": publishedBlogs.map((blog) => ({
+        name: "Your Tech Review Blog",
+        url: "https://yourdomain.com",
+        body: "In-depth reviews of the latest tech products and gadgets",
+        blogPost: publishedBlogs.map((blog) => ({
           "@type": "BlogPosting",
-          "headline": blog.title,
-          "datePublished": blog.createAt,
-          "author": {
+          headline: blog.title,
+          datePublished: blog.createAt,
+          author: {
             "@type": "Person",
-            "name": "Ashish Sharma"
+            name: "Ashish Sharma",
           },
-          "image": blog.mainImage || NoImg,
-          "url": `https://yourdomain.com/blog/${blog.slug}`
-        }))
+          image: blog.mainImage || NoImg,
+          url: `https://yourdomain.com/blog/${blog.slug}`,
+        })),
       });
       document.head.appendChild(script);
 
@@ -87,9 +95,18 @@ export default function Home() {
     <>
       <Head>
         <title>Tech Product Reviews | Your Website Name</title>
-        <meta name="description" content="Discover in-depth reviews of the latest tech products, gadgets, and innovations. Stay informed with our expert analysis and comparisons." />
-        <meta property="og:title" content="Tech Product Reviews | Your Website Name" />
-        <meta property="og:description" content="Discover in-depth reviews of the latest tech products, gadgets, and innovations." />
+        <meta
+          name="body"
+          content="Discover in-depth reviews of the latest tech products, gadgets, and innovations. Stay informed with our expert analysis and comparisons."
+        />
+        <meta
+          property="og:title"
+          content="Tech Product Reviews | Your Website Name"
+        />
+        <meta
+          property="og:body"
+          content="Discover in-depth reviews of the latest tech products, gadgets, and innovations."
+        />
         <meta property="og:image" content="/path-to-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -98,7 +115,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <section className="full-width-slider" aria-label="Featured posts slider">
+        <section
+          className="full-width-slider"
+          aria-label="Featured posts slider"
+        >
           <Slider {...sliderSettings}>
             <div>
               <Image
@@ -151,7 +171,7 @@ export default function Home() {
                             alt={`Featured image for ${blog.title}`}
                             width={300}
                             height={200}
-                            style={{ objectFit: 'cover' }}
+                            style={{ objectFit: "cover" }}
                             priority={index === 0}
                           />
                         </Link>
@@ -169,15 +189,11 @@ export default function Home() {
                             : blog.title}
                         </h3>
                       </Link>
-                      <p
-                        className="blog-description"
-                        dangerouslySetInnerHTML={{
-                          __html:
-                            blog.description.length > 100
-                              ? blog.description.substring(0, 100) + "..."
-                              : blog.description.toLowerCase(),
-                        }}
-                      ></p>
+                      <p className="blog-description">
+                        {blog.description.length > 50
+                          ? blog.description.substring(0, 50) + "..."
+                          : blog.description}
+                      </p>
 
                       <div className="blogauthor flex gap-1">
                         <div className="blogaimg">

@@ -109,7 +109,7 @@ export default function CategoryPage() {
                     //in the markdown content first image show here
 
                     const firstImageUrl = extractFirstImageUrl(
-                      item.description
+                      item.body
                     );
                     return (
                       <div className="cate_blog" key={item._id}>
@@ -136,13 +136,8 @@ export default function CategoryPage() {
                           </Link>
                           <p
                           className="blog-description"
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              item.description.length > 100
-                                ? item.description.substring(0, 100) + "..."
-                                : item.description.toLowerCase(),
-                          }}
-                        ></p>
+                          
+                        ><h3>{item.description}</h3></p>
                           <div className="blogauthor flex gap-1 ">
                             <div className="blogaimg">
                               <img src="/public/Author.jpg" alt="author" />

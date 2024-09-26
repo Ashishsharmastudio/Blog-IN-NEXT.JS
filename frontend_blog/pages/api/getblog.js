@@ -17,15 +17,10 @@ export default async function handle(req, res){
             console.log('all res is in api blog topic',cate)
             res.json(cate.reverse());
         } else if(req.query?.tags){
-            console.log('Entering tags condition');
-            try {
+            console.log('Entering tags condition')
                 const tag = await Blog.find({ tags: req.query.tags });
                 console.log('all res is in api blog tag', tag);
                 res.json(tag.reverse());
-            } catch (error) {
-                console.error('Error fetching tags:', error);
-                res.status(500).json({ error: 'Internal Server Error' });
-            }
         } else if (req.query?.slug) {
             
             //fetch  blog by slug

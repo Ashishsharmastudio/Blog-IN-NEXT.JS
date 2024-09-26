@@ -53,10 +53,11 @@ export default function Home() {
         "@type": "Blog",
         "name": "Your Tech Review Blog",
         "url": "https://yourdomain.com",
-        "description": "In-depth reviews of the latest tech products and gadgets",
+        "body": "In-depth reviews of the latest tech products and gadgets",
         "blogPost": publishedBlogs.map((blog) => ({
           "@type": "BlogPosting",
           "headline": blog.title,
+          "description": blog.description,
           "datePublished": blog.createAt,
           "author": {
             "@type": "Person",
@@ -82,9 +83,9 @@ export default function Home() {
     <>
       <Head>
         <title>Tech Product Reviews | Your Website Name</title>
-        <meta name="description" content="Discover in-depth reviews of the latest tech products, gadgets, and innovations. Stay informed with our expert analysis and comparisons." />
+        <meta name="body" content="Discover in-depth reviews of the latest tech products, gadgets, and innovations. Stay informed with our expert analysis and comparisons." />
         <meta property="og:title" content="Tech Product Reviews | Your Website Name" />
-        <meta property="og:description" content="Discover in-depth reviews of the latest tech products, gadgets, and innovations." />
+        <meta property="og:body" content="Discover in-depth reviews of the latest tech products, gadgets, and innovations." />
         <meta property="og:image" content="/path-to-og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -132,15 +133,11 @@ export default function Home() {
                             : blog.title}
                         </h3>
                       </Link>
-                      <p
-                        className="blog-description"
-                        dangerouslySetInnerHTML={{
-                          __html:
-                            blog.description.length > 100
-                              ? blog.description.substring(0, 100) + "..."
-                              : blog.description.toLowerCase(),
-                        }}
-                      ></p>
+                      <p className="blog-description">
+                      {blog.description.length > 50
+                            ? blog.description.substring(0, 70) + "..."
+                            : blog.description}
+                      </p>
 
                       <div className="blogauthor flex gap-1">
                         <div className="blogaimg">
