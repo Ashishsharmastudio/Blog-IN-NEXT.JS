@@ -129,9 +129,13 @@ export default function CategoryPage() {
                           </div>
                         </Link>
                         <Link href={`/blog/${item.slug}`}>
-                          <h3>{item.title}</h3>
+                          <h3>{item.title.length > 50
+                            ? item.title.substring(0, 40) + "..."
+                            : item.title}</h3>
                         </Link>
-                        <p className="blog-descriptions">{item.description}</p>
+                        <p className="blog-descriptions">{item.title.length > 50
+                            ? item.title.substring(0, 50) + "..."
+                            : item.title}</p>
                         <div className="blogauthor flex gap-1 ">
                           <div className="blogaimg">
                             <Image
@@ -142,18 +146,18 @@ export default function CategoryPage() {
                             />
                           </div>
                           <div className="flex flex-col flex-left gap-05">
-                            <h4>Ashish Sharma</h4>
-                            <span>
-                              {new Date(item.createAt).toLocaleDateString(
-                                "en-US",
-                                {
-                                  month: "long",
-                                  day: "numeric",
-                                  year: "numeric",
-                                }
-                              )}
-                            </span>
-                          </div>
+                          <h4>Ashish Sharma</h4>
+                          <span>
+                            {new Date(item.createdAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                month: "long",
+                                day: "numeric",
+                                year: "numeric",
+                              }
+                            )}
+                          </span>
+                        </div>
                         </div>
                       </div>
                     </div>

@@ -111,10 +111,14 @@ export default function TagPage() {
                         </div>
                       </Link>
                       <Link href={`/blog/${item.slug}`}>
-                        <h3>{item.title}</h3>
+                        <h3>{item.title.length > 50
+                            ? item.title.substring(0, 50) + "..."
+                            : item.title}</h3>
                       </Link>
                       <p className="blog-descriptions">
-                        {item.description}
+                      {item.title.length > 50
+                            ? item.title.substring(0, 50) + "..."
+                            : item.title}
                       </p>
                       <div className="blogauthor flex gap-1 ">
                         <div className="blogaimg">
@@ -123,7 +127,7 @@ export default function TagPage() {
                         <div className="flex flex-col flex-left gap-05">
                           <h4>Ashish Sharma</h4>
                           <span>
-                            {new Date(item.createAt).toLocaleDateString(
+                            {new Date(item.createdAt).toLocaleDateString(
                               "en-US",
                               {
                                 month: "long",
