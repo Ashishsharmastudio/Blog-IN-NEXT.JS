@@ -1692,41 +1692,6 @@ a {
   justify-content: space-between;
 }
 
-.cate_blog {
-  width: 380px;
-  overflow: hidden;
-  box-shadow: 0 0 5px #dadada;
-  border-radius: 10px;
-  margin-bottom: 3rem;
-  padding: 0.5rem;
-  transition: 0.3s ease-in-out;
-}
-
-.cate_blog a img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.dark .cate_blog {
-  background-color: #2d3748;
-  box-shadow: 0 0 5px #222;
-}
-
-.cate_blog .bloginfo {
-  padding: 0rem 1rem;
-  padding-bottom: 1rem;
-}
-
-.cate_blog:hover {
-  box-shadow: 0 5px 10px #999;
-  transform: translateY(-5px);
-}
-
-.dark .cate_blog:hover {
-  box-shadow: 0 0 5px #555;
-}
 
 /* *************************************************************************** */
 /* ***************************************************** MEDIA QUERY RESPONSIVE WEBSITE */
@@ -2534,7 +2499,7 @@ h1 {
 }
 
 p {
-  font-size: 18px;
+  font-size: 17px;
 }
 /* section-2 css */
 .about-us-section-2 {
