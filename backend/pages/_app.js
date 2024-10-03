@@ -20,7 +20,7 @@ function AuthWrapper({ children }) {
 
   useEffect(() => {
     if (status === "authenticated") {
-      const isAuthorized = checkAuthorization(sessionData.user.email);
+      const isAuthorized = checkAuthorization(sessionData.user.email || '[]');
       if (!isAuthorized) {
         signOut({ callbackUrl: "/login" });
       }
