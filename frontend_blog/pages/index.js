@@ -115,6 +115,7 @@ export default function Home() {
       </Head>
 
       <main>
+         {/* slider */}
         <section
           className="full-width-slider"
           aria-label="Featured posts slider"

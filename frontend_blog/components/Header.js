@@ -7,6 +7,8 @@ import { FaXmark } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { LuSun } from "react-icons/lu";
 import useFetchData from "@/hooks/useFetchData";
+import Logo from "@/public/Logo.png";
+import Image from "next/image";
 
 
 export default function Header() {
@@ -74,7 +76,7 @@ export default function Header() {
     <div className="header_sec">
       <div className="container header">
         <div className="logo">
-          <Link href={"/"}><h1>Product Reviewer</h1></Link>
+          <Link href={"/"}><Image src={Logo} alt="logo"/></Link>
         </div>
         <div className="searchbar">
           <IoSearchSharp />

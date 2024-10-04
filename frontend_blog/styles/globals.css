@@ -339,7 +339,12 @@ a {
   align-items: center;
   justify-content: center;
   color: #2d3748;
-  padding: 2rem 0;
+}
+@media only screen and (max-width: 1032px) {
+  .header {
+    justify-content: space-around;
+    padding: 0.5rem 0;
+  }
 }
 
 .dark .header {
@@ -1864,6 +1869,7 @@ a {
   }
 }
 /* slider css */
+/* Full width for desktop view */
 .full-width-slider {
   width: 100vw;
   position: relative;
@@ -1885,6 +1891,45 @@ a {
 .full-width-slider .slick-slide img {
   object-fit: cover;
   object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive styling for images and slider on smaller screens */
+@media (max-width: 1024px) {
+  .full-width-slider .slick-slide {
+    height: 70vh; /* Shrink the slider height for tablets */
+  }
+
+  .full-width-slider .slick-slide img {
+    object-fit: contain; /* Prevent image cropping */
+    width: 100%; /* Make sure images take full width */
+    height: 100%; /* Let images shrink while keeping aspect ratio */
+  }
+}
+
+@media (max-width: 768px) {
+  .full-width-slider .slick-slide {
+    height: 60vh; /* Adjust slider height for mobile */
+  }
+
+  .full-width-slider .slick-slide img {
+    object-fit: contain; /* Prevent image cropping */
+    width: 100%; /* Ensure full width without cropping */
+    height: auto; /* Allow the height to adjust according to the aspect ratio */
+  }
+}
+
+@media (max-width: 480px) {
+  .full-width-slider .slick-slide {
+    height: 50vh; /* Smaller height for very small screens */
+  }
+
+  .full-width-slider .slick-slide img {
+    object-fit: contain; /* Prevent cropping */
+    width: 100%; /* Full width */
+    height: auto; /* Adjust height for aspect ratio */
+  }
 }
 /* slider css ended */
 
@@ -2871,7 +2916,46 @@ p {
     border: 8px solid white;
 }
 
-.logo-container {
+/* General logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 150px; /* Default size for larger screens */
+  height: auto; /* Maintain aspect ratio */
+  transition: all 0.3s ease; /* Smooth transitions for scaling */
+}
+
+/* Hover effect for normal screens */
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+/* Mobile responsiveness (up to 767px) */
+@media only screen and (max-width: 767px) {
+  .logo img {
+    width: 100px; /* Smaller logo size on mobile */
+  }
+}
+
+/* Tablet responsiveness (768px to 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .logo img {
+    width: 130px; /* Adjusted size for tablet */
+  }
+}
+
+/* Desktop responsiveness (1025px and above) */
+@media only screen and (min-width: 1025px) {
+  .logo img {
+    width: 150px; /* Larger logo for desktop */
+  }
+}
+
+/* .logo-container {
   display: flex;
   align-items: center;
   margin-right: 2rem;
@@ -2882,7 +2966,7 @@ p {
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
-}
+} */
 
 .company-name {
   font-size: 1.25rem;
