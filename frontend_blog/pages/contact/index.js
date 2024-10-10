@@ -47,7 +47,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="image-area">
-            <Image src={ContactImg} alt="contact" width={700} height={500} />
+            <Image src={ContactImg} alt="contact"/>
           </div>
         </div>
       </section>

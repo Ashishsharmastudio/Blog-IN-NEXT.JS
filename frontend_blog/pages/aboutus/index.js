@@ -46,12 +46,12 @@ const pageData = {
     { title: "Client-Centric Focus", icon: CiCircleCheck },
   ],
   stats: [
-    { icon:FaFileCircleCheck, number: "986+", label: "Finished Projects" },
-    { icon:PiSmileyFill, number: "896+", label: "Happy Clients" },
-    { icon:GrUserExpert, number: "396+", label: "Skilled Experts" },
-    { icon:FaAward, number: "496+", label: "Honorable Awards" },
+    { icon: FaFileCircleCheck, number: "986+", label: "Finished Projects" },
+    { icon: PiSmileyFill, number: "896+", label: "Happy Clients" },
+    { icon: GrUserExpert, number: "396+", label: "Skilled Experts" },
+    { icon: FaAward, number: "496+", label: "Honorable Awards" },
   ],
-  
+
   profileCards: [
     {
       image: Feedback1,
@@ -87,7 +87,7 @@ const About = () => {
     window.location.href = "tel:+91 9140585097";
   };
   const handlewhatsappClick = () => {
-    window.location.href = "https://wa.me/9140585097"; 
+    window.location.href = "https://wa.me/9140585097";
   };
 
   const handleEmailClick = () => {
@@ -97,6 +97,14 @@ const About = () => {
   const handleLocationClick = () => {
     window.open("https://maps.google.com/?q=54 jhansi,India", "_blank");
   };
+  //function for pairing stats data
+  function chunk(array, size) {
+    const chunked = [];
+    for (let i = 0; i < array.length; i += size) {
+      chunked.push(array.slice(i, i + size));
+    }
+    return chunked;
+  }
 
   return (
     // sectino -1
@@ -188,15 +196,19 @@ const About = () => {
       {/*  section -4 */}
       <section className="stats-section">
         <div className="stats-container">
-          {pageData.stats.map((stat, index) => (
-            <div className="stat" key={index}>
-              <div className="stats-icon">
-                <stat.icon size={40} />
-              </div>
-              <div className="stat-number">{stat.number}
-              <div className="stat-label">{stat.label}</div>
-              </div>
-              
+          {chunk(pageData.stats, 2).map((pair, pairIndex) => (
+            <div className="stat-pair" key={pairIndex}>
+              {pair.map((stat, index) => (
+                <div className="stat" key={index}>
+                  <div className="stats-icon">
+                    <stat.icon size={40} />
+                  </div>
+                  <div className="stat-number">
+                    {stat.number}
+                    <div className="stat-label">{stat.label}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
@@ -207,10 +219,10 @@ const About = () => {
           <div className="con-1">
             <h2>Why Choose Us</h2>
             <h1>
-            We Architect <span>Digital Ecosystems</span> with Full-Stack Mastery
+              We Architect <span>Digital Ecosystems</span> with Full-Stack Mastery
             </h1>
             <p>
-            At the crossroads of innovation and technology, we transform ideas into tangible digital realities,crafting bespoke solutions for the modern age.
+              At the crossroads of innovation and technology, we transform ideas into tangible digital realities,crafting bespoke solutions for the modern age.
             </p>
             <div className="objective-con">
               <div className="objective-con-1">
@@ -276,18 +288,19 @@ const About = () => {
       {/* section - 7 */}
       <section className="header-container">
         <div className="logo-container">
-          <IoHomeOutline color="#2ec79a" size={18}/>
-          <span className="company-name"><a href="https://www.linkedin.com/in/ashish-sharma-rrr/" target="_blank">Ashish</a></span>
+          <IoHomeOutline color="#2ec79a" size={18} />
+          <span className="company-name"><a href="https://www.linkedin.com/in/ashish-sharma-rrr/" target="_blank">  Ashish  </a></span>
+          <IoIosArrowDropleft id="arrow" size={18} color="#2ec79a" />
         </div>
         <div className="content-container">
-        <IoIosArrowDropleft size={40} color="#2ec79a"/>
+         
           <div className="contact-info">
             <div className="contact-item" onClick={handlePhoneClick}>
-              <Phone  className="icon" />
+              <Phone className="icon" />
               <span>Quick Call Us: +91 9140585097</span>
             </div>
             <div className="contact-item" onClick={handlewhatsappClick}>
-              <Phone  className="icon" />
+              <Phone className="icon" />
               <span>Whatsapp Us: +91 9140585097</span>
             </div>
             <div className="contact-item" onClick={handleEmailClick}>
@@ -300,7 +313,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> 
     </section>
   );
 };

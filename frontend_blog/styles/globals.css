@@ -339,6 +339,7 @@ a {
   align-items: center;
   justify-content: center;
   color: #2d3748;
+  padding: 20px 0px;
 }
 @media only screen and (max-width: 1032px) {
   .header {
@@ -878,11 +879,11 @@ a {
     transform: rotate(-360deg) translateY(var(--y));
   }
 }
-
+ 
 .main_blog_section {
   background-color: #f4f4f4;
   padding: 3rem 0;
-  margin-top: 90px;
+  /* margin-top: 90px; */
 }
 
 .dark .main_blog_section {
@@ -895,13 +896,24 @@ a {
   flex-wrap: wrap;
   /* gap: 15rem;  */
   padding: 10px;
+  justify-content: center;
 }
 #hadding {
   margin-bottom: 2rem;
   margin-left: 110px;
   color: #2d3748;
 }
-
+@media screen and (max-width: 724px) {
+  #hadding {
+    margin-left: 50px;
+  }
+}
+@media screen and (max-width: 316px) {
+  #hadding {
+    margin-left: 10px;
+    font-size: 12;
+  }
+}
 .leftblog_sec h2 {
   position: relative;
   font-size: 25px;
@@ -1753,15 +1765,12 @@ a {
 
   .leftblog_sec {
     width: 100%;
+    padding: 0px 0px;
   }
 
   .rightblog_info {
     width: 100%;
   }
-  /* 
-  .blogs_sec {
-    width: 100%;
-  } */
 
   .blog {
     max-width: 100%;
@@ -1837,17 +1846,19 @@ a {
     flex-direction: column;
     overflow: hidden;
     width: 100%;
-    padding: 1rem;
+    margin: 5px 0px;
   }
 
   .blogimg {
     width: 100%;
     height: auto;
   }
-
-  .footer {
-    padding: 3rem 1rem;
+  .bloginfo h3 {
+    font-size: 18px;
   }
+  /* .footer {
+    padding: 3rem 1rem;
+  } */
 
   .footer .flex-wrap {
     gap: 2rem;
@@ -1859,7 +1870,9 @@ a {
     justify-content: center;
     text-align: center;
   }
-
+  .container {
+    margin: 0px 0px;
+  }
   .slugpage {
     padding-top: 3rem;
   }
@@ -1940,6 +1953,13 @@ a {
   margin-top: -80px;
   justify-content: center;
 }
+@media screen and (max-width: 724px) {
+  .bannerb{
+    display: none;
+  }
+}
+
+
 .banner-bottom {
   margin: auto;
   justify-content: space-between;
@@ -2175,6 +2195,12 @@ a {
 .image-area {
   height: auto;
   width: 50%;
+  justify-content: center;
+}
+.image-area img {
+  width: 100%; /* Makes the image take up full width of the container */
+  max-width: 666px; /* Restrict it to original size if the screen is larger */
+  height: auto; /* Maintain the aspect ratio */
 }
 
 
@@ -2511,6 +2537,24 @@ input[type="email"] {
 }
 
 @media (max-width: 768px) {
+  .contact-form{
+    flex-direction: column-reverse;
+  }
+  .text-area{
+    width: 100%;
+    margin: 20px 10px;
+  }
+  .text-area h1 {
+    font-size: 40px;
+  }
+  .image-area{
+    width: 100%;
+    display: flex;
+  }
+  .image-area img {
+    max-width: 80%; /* Ensures the image is responsive */
+    height: auto; /* Maintain the aspect ratio */
+  }
   .newsletter-form {
     flex-direction: column;
   }
@@ -2525,28 +2569,92 @@ input[type="email"] {
     width: 100%;
   }
 }
+@media (max-width: 950px) {
+.cont{
+  flex-direction: column;
+}
+/* .contact-form-2-area h1 {
+  text-align: center;
+} */
+.form-area {
+  width: 100%;
+}
+}
+/* media query */
+
 /* End of section 4 subscrive  news latter */
 
 /* about page css */
 /* section 1 */
 .about-us-section {
   text-align: center;
-  padding: 150px 0px; /* Adjust padding as needed */
-  background-image: url('/blank.jpg'); 
-  background-size: cover; /* Adjust background size as needed */
-  background-position: center; /* Adjust background position as needed */
+  padding: 150px 20px; /* Added horizontal padding */
+  background-image: url('/blank.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
   color: white;
+  position: relative; /* For potential overlay */
 }
 
-h1 {
+/* Optional: Add an overlay to ensure text is always readable */
+.about-us-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+  z-index: 1;
+}
+
+.about-us-text {
+  position: relative;
+  z-index: 2; /* Ensure text is above the overlay */
+}
+
+.about-us-text h1 {
   font-size: 36px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
-p {
+.about-us-text p {
   font-size: 17px;
+  margin: 0;
 }
-/* section-2 css */
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .about-us-section {
+    padding: 100px 15px; /* Reduce padding on smaller screens */
+  }
+
+  .about-us-text h1 {
+    font-size: 30px;
+  }
+
+  .about-us-text p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-section {
+    padding: 80px 10px; /* Further reduce padding on very small screens */
+  }
+
+
+  .about-us-text h1 {
+    font-size: 22px;
+  }
+  .about-us-text p {
+    font-size: 14px;
+  }
+}
+/* section-2 css */ 
 .about-us-section-2 {
   display: flex;
   justify-content: space-between;
@@ -2569,10 +2677,6 @@ p {
 .about-us-text{
    width: 68%;
 }
-.about-us-text h1{
-   font-size: 44px;
-}
-
 .about-us-content {
   flex: 1;
   padding: 20px;
@@ -2720,36 +2824,61 @@ p {
 }
 /* section - 4 css */
 .stats-section {
-  background-color: #f5f5f5; /* Adjust background color as needed */
-  padding: 20px;
+  padding: 2rem 1rem;
+  background-color: #f5f5f5;
 }
 
 .stats-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.stat-pair{
+  display: flex;
+}
+.stat {
+  flex: 1 1 200px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 40px;
 }
 
-.stat {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.stats-icon {
+  margin-bottom: 0.5rem;
 }
-.stats-icon{
-  width: auto;
-  height: auto;
-  color: #2ec79a;
-}
+
 .stat-number {
-  font-size: 24px;
+  font-size: 1.25rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .stat-label {
-  font-size: 14px;
-  color: #457b9d;
+  font-size: 0.875rem;
+  color: #666;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .stat-pair {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stat {
+    flex: 0 0 calc(50% - 1rem);
+    margin: 0.5rem;
+  }
 }
 /* section - 5 css */
 .choose-us-section {
@@ -2955,24 +3084,26 @@ p {
   }
 }
 
-/* .logo-container {
-  display: flex;
-  align-items: center;
-  margin-right: 2rem;
-  gap: 5px;
-}
-
-.logos {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.5rem;
-} */
-
 .company-name {
   font-size: 1.25rem;
   font-weight: bold;
 }
-
+@media only screen and (max-width: 1361px) {
+  #arrow{
+    display: none;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .header-container {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .contact-info{
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 .content-container {
   display: flex;
   align-items: center;
@@ -3012,18 +3143,28 @@ p {
   margin-right: 0.5rem;
 }
 
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .content-container {
+@media only screen and (max-width: 1054px) {
+  .about-us-section-2{
     flex-direction: column;
-    align-items: flex-start;
+  }
+  .about-us-content h1{
+    font-size: 25px;
+  }
+  .choose-us-container {
+    flex-direction: column-reverse;
+  }
+  .con-1 {
     width: 100%;
   }
-
+  .con-2{
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .about-us-content h3{
+    font-size: 18px;
+  }
  
 
   .contact-item {
@@ -3035,9 +3176,55 @@ p {
     display: none;
   }
 }
+@media only screen and (max-width: 500px) {
+  .certification-section {
+    flex-direction: column;
+  }
+  .call-to-action {
+    flex-direction: column;
+    gap: 10px;
+    align-items: normal;
+  }
+  .con-1{
+    padding: 0px 0px;
+  }
+  .con-1 h2 {
+    margin-left: 10px;
+  }
+  .con-1 h1 {
+    margin-left: 10px;
+  }
+  .con-1 p{
+    margin-left: 10px;
+  }
+  h1{
+    font-size: 20px;
+  }
+  .profile-card{
+    width: 100%;
+  }
+  .testimonial-section-cards {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonial-section-cards .profile-card:nth-child(3) {
+    display: none;
+  }
+}
 /* end of section - 7 */
 .features li {
   margin-bottom: 10px;
+}
+@media (min-width: 576px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .stats-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 img {                                                                                                         
