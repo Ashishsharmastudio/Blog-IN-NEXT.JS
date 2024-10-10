@@ -1878,7 +1878,23 @@ a {
   }
 
   .slugtitle {
-    font-size: 35px;
+    font-size: 28px;
+  }
+  .descriptions {
+    font-size: 15px;
+    margin: 15px 10px;
+  }
+  .author-text {
+    font-size: 15px;
+  }
+  .blogcontent {
+    padding: 0px 0px;
+  }
+  .blogcontent h1:first-child {
+    font-size: 28px;
+  }
+  .blogcontent h2 {
+    line-height:  1;
   }
 }
 /* slider css */
